@@ -1,0 +1,33 @@
+<div class="header-container"
+     [class.left]="position === 'normal'"
+     [class.right]="position === 'inverse'">
+  <div class="logo-containter">
+    <a *ngIf="isLoggedIn()" (click)="toggleSidebar()" href="#" class="navigation"><i class="nb-menu"></i></a>
+    <div class="logo" (click)="goToHome()">TFunc</div>
+  </div>
+  <ngx-theme-switcher></ngx-theme-switcher>
+</div>
+
+<nb-actions
+  size="medium"
+  class="header-container"
+  [class.right]="position === 'normal'"
+  [class.left]="position === 'inverse'">
+  <nb-action *ngIf="isLoggedIn()" icon="nb-grid-b" class="toggle-layout" (click)="toggleSettings()"></nb-action>
+  <nb-action *ngIf="isLoggedIn()">
+    <nb-user [menu]="userMenu" [name]="user?.fullName" [picture]="user?.picture"></nb-user>
+  </nb-action>
+  <nb-action *ngIf="isLoggedIn()" class="control-item" disabled icon="nb-notifications"></nb-action>
+  <nb-action class="control-item">
+    <nb-search type="rotate-layout" (click)="startSearch()"></nb-search>
+  </nb-action>
+</nb-actions>
+<nb-actions size="medium" [class.right]="position === 'normal'"
+[class.left]="position === 'inverse'" *ngIf="!isLoggedIn()">
+  <nb-action class="HomeNav" (click)="loginClick()">
+    <div><i class="ion-log-in"></i></div><div><span>Login</span></div>
+  </nb-action>
+  <nb-action class="HomeNav" (click)="registerClick()">
+    <div><i class="ion-person-add"></i></div><div><span>Register</span></div>
+  </nb-action>
+</nb-actions>
