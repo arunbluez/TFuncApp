@@ -7,7 +7,7 @@ import { UserService } from '../@core/data/users.service';
 export class RedisApiService {
   authToken: any;
   user: any;
-  isDev:boolean;
+  isDev: boolean;
 
   constructor(private http:Http, private userService:UserService) {
     this.isDev = false;
@@ -20,16 +20,16 @@ export class RedisApiService {
     headers.append('Authorization', this.authToken);
     headers.append('Content-Type','application/json');
     const ep = this.prepEndpoint('control/dashboard/',state,this.user);
-    return this.http.get(ep,{headers: headers})
+    return this.http.get(ep, {headers: headers})
       .subscribe(res => res.json());
   }
 
-  loadToken(){
+  loadToken() {
     const token = localStorage.getItem('id_token');
     this.authToken = token;
   }
-  prepEndpoint(ep,state,user){
-    if(this.isDev){
+  prepEndpoint(ep,state,user) {
+    if (this.isDev) {
       return ep;
     } else {
       return 'http://localhost:3000/'+ep+'dashBtn1/'+state+'/'+user.value.id;

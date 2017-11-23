@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
               private menuService: NbMenuService,
               private userService: UserService,
               private nbAuthService: NbAuthService,
-              private router:Router,
+              private router: Router,
               private analyticsService: AnalyticsService) {
   }
 
@@ -42,15 +42,15 @@ export class HeaderComponent implements OnInit {
     return false;
   }
 
-  loginClick(){
+  loginClick() {
     this.router.navigate(['users']);
   }
 
-  registerClick(){
+  registerClick() {
     this.router.navigate(['users/register']);
   }
 
-  isLoggedIn(){
+  isLoggedIn() {
     return this.nbAuthService.loggedIn();
   }
 

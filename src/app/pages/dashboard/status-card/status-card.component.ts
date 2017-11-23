@@ -27,9 +27,9 @@ export class StatusCardComponent {
   @Input() on = true;
   stateBtn1: boolean;
 
-  constructor(private redisApiService:RedisApiService) {}
+  constructor(private redisApiService:RedisApiService) { }
 
-  onClickDashBtn1(value){
+  onClickDashBtn1(value) {
       this.stateBtn1 = value;
       this.redisApiService.dashBtnClick(this.stateBtn1);
   }
