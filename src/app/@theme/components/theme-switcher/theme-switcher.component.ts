@@ -26,7 +26,7 @@ export class ThemeSwitcherComponent implements OnInit {
 
   ngOnInit() {
 
-    if(!this.nbAuthService.loggedIn()) {
+  if(!this.nbAuthService.loggedIn()) {
       this.toggleTheme(false);
     } else {
       this.toggleTheme(true);
@@ -37,8 +37,6 @@ export class ThemeSwitcherComponent implements OnInit {
 
   toggleTheme(theme: boolean) {
     const boolTheme = this.boolToTheme(theme);
-    console.log(boolTheme);
-
     this.themeService.changeTheme(boolTheme);
     this.analyticsService.trackEvent('switchTheme');
   }

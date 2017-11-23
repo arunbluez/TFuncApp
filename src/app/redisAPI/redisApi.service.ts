@@ -5,7 +5,7 @@ import { UserService } from '../@core/data/users.service';
 
 @Injectable()
 export class RedisApiService {
-    authToken: any;
+  authToken: any;
   user: any;
   isDev:boolean;
 
@@ -14,13 +14,12 @@ export class RedisApiService {
   }
 
   dashBtnClick(state) {
-        this.loadToken();
+    this.loadToken();
     this.user = this.userService.getUser();
-    let headers = new Headers();
-      headers.append('Authorization', this.authToken);
+    const headers = new Headers();
+    headers.append('Authorization', this.authToken);
     headers.append('Content-Type','application/json');
-    let ep = this.prepEndpoint('control/dashboard/',state,this.user);
-        console.log(ep);
+    const ep = this.prepEndpoint('control/dashboard/',state,this.user);
     return this.http.get(ep,{headers: headers})
       .subscribe(res => res.json());
   }
@@ -33,7 +32,7 @@ export class RedisApiService {
     if(this.isDev){
       return ep;
     } else {
-      return 'http://localhost:3000/'+ep+"dashBtn1/"+state+"/"+user.value.id;
+      return 'http://localhost:3000/'+ep+'dashBtn1/'+state+'/'+user.value.id;
     }
   }
 }

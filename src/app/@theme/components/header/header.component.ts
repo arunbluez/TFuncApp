@@ -42,17 +42,17 @@ export class HeaderComponent implements OnInit {
     return false;
   }
 
-loginClick(){
-  this.router.navigate(['users']);
-}
+  loginClick(){
+    this.router.navigate(['users']);
+  }
 
-registerClick(){
-  this.router.navigate(['users/register']);
-}
+  registerClick(){
+    this.router.navigate(['users/register']);
+  }
 
-isLoggedIn(){
-  return this.nbAuthService.loggedIn();
-}
+  isLoggedIn(){
+    return this.nbAuthService.loggedIn();
+  }
 
   goToHome() {
     this.menuService.navigateHome();
