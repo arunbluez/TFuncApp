@@ -9,7 +9,7 @@ export class RedisApiService {
   user: any;
   isDev: boolean;
 
-  constructor(private http:Http, private userService:UserService) {
+  constructor(private http: Http, private userService: UserService) {
     this.isDev = false;
   }
 
@@ -18,8 +18,8 @@ export class RedisApiService {
     this.user = this.userService.getUser();
     const headers = new Headers();
     headers.append('Authorization', this.authToken);
-    headers.append('Content-Type','application/json');
-    const ep = this.prepEndpoint('control/dashboard/',state,this.user);
+    headers.append('Content-Type', 'application/json');
+    const ep = this.prepEndpoint('control/dashboard/', state, this.user);
     return this.http.get(ep, {headers: headers})
       .subscribe(res => res.json());
   }
@@ -28,11 +28,11 @@ export class RedisApiService {
     const token = localStorage.getItem('id_token');
     this.authToken = token;
   }
-  prepEndpoint(ep,state,user) {
+  prepEndpoint(ep, state, user) {
     if (this.isDev) {
       return ep;
     } else {
-      return 'http://localhost:3000/'+ep+'dashBtn1/'+state+'/'+user.value.id;
+      return 'http://localhost:3000/'+ ep + 'dashBtn1/' + state + '/' + user.value.id;
     }
   }
 }
