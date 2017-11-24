@@ -15,7 +15,7 @@ console.log(userId);
     if(!user){
       return res.json({success: false, msg: 'User Error'});
     }else{
-      var channel = user.confirmPassword + "7890:" + "module1";
+      var channel = user.authCode + ":module1";
       var message = "DO:16:" + state;
 
        console.log(channel + "       " + message);
