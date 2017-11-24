@@ -15,6 +15,7 @@ router.post('/register', (req, res, next) => {
     terms: req.body.terms,
     confirmPassword: req.body.confirmPassword,
     fullName: req.body.fullName,
+    authCode: req.body.authCode,
   });
 
   User.addUser(newUser, (err, user) => {

@@ -28,6 +28,10 @@ const UserSchema = mongoose.Schema({
   fullName: {
     type: String,
     required: true
+  },
+  authCode: {
+    type: String,
+    required: true
   }
 });
 
