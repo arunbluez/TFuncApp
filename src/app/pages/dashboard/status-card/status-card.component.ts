@@ -6,7 +6,7 @@ import { RedisApiService } from '../../../redisAPI/redisApi.service';
   selector: 'ngx-status-card',
   styleUrls: ['./status-card.component.scss'],
   template: `
-    <nb-card (click)="on = !on" (click)="onClickDashBtn1(on)" [ngClass]="{'off': !on}">
+    <nb-card (click)="on = !on" (click)="onClickDashBtn(on, pin)" [ngClass]="{'off': !on}">
       <div class="icon-container">
         <div class="icon {{ type }}">
           <ng-content></ng-content>
@@ -24,14 +24,17 @@ export class StatusCardComponent {
 
   @Input() title: string;
   @Input() type: string;
+  @Input() pin: string;
   @Input() on = true;
-  stateBtn1: boolean;
+  stateBtn: boolean;
+  pin: string;
 
   constructor(private redisApiService: RedisApiService) { }
 
-  onClickDashBtn1(value) {
-      this.stateBtn1 = value;
-      this.redisApiService.dashBtnClick(this.stateBtn1);
+  onClickDashBtn(value, pin) {
+      this.stateBtn = value;
+      this.pin = pin;
+      this.redisApiService.dashBtnClick(this.stateBtn, this.pin);
   }
 
 }

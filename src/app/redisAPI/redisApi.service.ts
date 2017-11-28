@@ -13,13 +13,13 @@ export class RedisApiService {
     this.isDev = false;
   }
 
-  dashBtnClick(state) {
+  dashBtnClick(state, pin) {
     this.loadToken();
     this.user = this.userService.getUser();
     const headers = new Headers();
     headers.append('Authorization', this.authToken);
     headers.append('Content-Type', 'application/json');
-    const ep = this.prepEndpoint('control/dashboard/', state, this.user);
+    const ep = this.prepEndpoint('control/dashboard/', state, pin, this.user);
     return this.http.get(ep, {headers: headers})
       .subscribe(res => res.json());
   }
@@ -28,11 +28,11 @@ export class RedisApiService {
     const token = localStorage.getItem('id_token');
     this.authToken = token;
   }
-  prepEndpoint(ep, state, user) {
+  prepEndpoint(ep, state, pin, user) {
     if (this.isDev) {
       return ep;
     } else {
-      return ep + 'dashBtn1/' + state + '/' + user.value.id;
+      return ep + 'dashBtn/' + state + '/' + pin + '/' + user.value.id;
     }
   }
 }
