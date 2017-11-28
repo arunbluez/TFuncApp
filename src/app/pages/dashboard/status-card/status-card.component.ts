@@ -27,14 +27,14 @@ export class StatusCardComponent {
   @Input() pin: string;
   @Input() on = true;
   stateBtn: boolean;
-  pin: string;
+  sendPin: string;
 
   constructor(private redisApiService: RedisApiService) { }
 
   onClickDashBtn(value, pin) {
       this.stateBtn = value;
-      this.pin = pin;
-      this.redisApiService.dashBtnClick(this.stateBtn, this.pin);
+      this.sendPin = pin;
+      this.redisApiService.dashBtnClick(this.stateBtn, this.sendPin);
   }
 
 }
