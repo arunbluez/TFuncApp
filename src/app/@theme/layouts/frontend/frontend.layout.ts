@@ -26,7 +26,8 @@ import { NbThemeService } from '@nebular/theme';
   export class FrontendLayoutComponent {
 
     constructor(private themeService: NbThemeService) {
+         themeService.changeTheme('home');
    }
 
-   this.themeService.changeTheme('home');
+
 }
