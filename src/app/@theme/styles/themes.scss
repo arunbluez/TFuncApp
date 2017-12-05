@@ -4,7 +4,7 @@
 @import '~@nebular/theme/styles/themes';
 
 // which themes you what to enable (empty to enable all)
-$nb-enabled-themes: (default, cosmic);
+$nb-enabled-themes: (default, cosmic, home);
 
 $nb-themes: nb-register-theme((
  // app wise variables for each theme
@@ -17,7 +17,22 @@ $nb-themes: nb-register-theme((
 ), default, default);
 
 $nb-themes: nb-register-theme((
+ // app wise variables for each theme
+  layout-bg: #fff,
+  layout-window-mode-bg: #fff,
+  footer-bg: #dbdbdb,
+  sidebar-header-gap: 2rem,
+  sidebar-header-height: initial,
+  layout-content-width: 1400px,
+
+  font-main: Roboto,
+  font-secondary: Exo,
+), home, default);
+
+$nb-themes: nb-register-theme((
   // app wise variables for each theme
+
+
   sidebar-header-gap: 2rem,
   sidebar-header-height: initial,
   layout-content-width: 1400px,

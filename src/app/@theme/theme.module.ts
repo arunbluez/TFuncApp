@@ -20,6 +20,7 @@ import {
 import {
   FooterComponent,
   HeaderComponent,
+  HomeHeaderComponent,
   SearchInputComponent,
   ThemeSettingsComponent,
   ThemeSwitcherComponent,
@@ -35,6 +36,7 @@ import {
 } from './layouts';
 import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
+import { HOME_THEME } from './styles/theme.home';
 
 const BASE_MODULES = [CommonModule, FormsModule, ReactiveFormsModule];
 
@@ -55,6 +57,7 @@ const NB_MODULES = [
 const COMPONENTS = [
   ThemeSwitcherComponent,
   HeaderComponent,
+  HomeHeaderComponent,
   FooterComponent,
   SearchInputComponent,
   ThemeSettingsComponent,
@@ -76,9 +79,9 @@ const PIPES = [
 const NB_THEME_PROVIDERS = [
   ...NbThemeModule.forRoot(
     {
-      name: 'cosmic',
+      name: 'home',
     },
-    [ DEFAULT_THEME, COSMIC_THEME ],
+    [ DEFAULT_THEME, COSMIC_THEME, HOME_THEME ],
   ).providers,
   ...NbSidebarModule.forRoot().providers,
   ...NbMenuModule.forRoot().providers,
