@@ -56,7 +56,7 @@ app.use('/users', users);
 app.use('/control', control);
 // Index Route
 app.get('/', (req, res) => {
-  res.send('Invalid Endpoint');
+  res.send('Website Under Maintainence! Please Visit again in some time.');
 });
 
 app.get('*', (req, res) => {
