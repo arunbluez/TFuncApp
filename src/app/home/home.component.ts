@@ -11,8 +11,8 @@ import { ICarouselConfig, AnimationConfig } from 'angular4-carousel';
 
     public imageSources: string[] = [
      'assets/images/home/h1.jpg',
-     'http://www.industrytap.com/wp-content/uploads/2016/08/IoT-Platforms-e1471532141262.jpg',
-     'http://2.bp.blogspot.com/-t3abcpVn0l4/VOxKa22zehI/AAAAAAAAAKk/u9URi8CM6XU/s1600/Internetthings-COverImage.png',
+     'assets/images/home/h2.jpg',
+     'assets/images/home/h3.jpg',
   ];
 
   public config: ICarouselConfig = {
