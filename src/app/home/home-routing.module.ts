@@ -2,6 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { HomeComponent } from './home.component';
+import { FeaturesComponent } from './components/features/features.component';
 
 const routes: Routes = [{
   path: '',

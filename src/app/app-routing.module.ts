@@ -9,7 +9,7 @@ import {
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
 } from '@nebular/auth';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent, FeaturesComponent, ContactComponent, UpdatesComponent } from './home/home.component';
 import { PagesComponent } from './pages/pages.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
@@ -24,7 +24,24 @@ const routes: Routes = [
     pathMatch: 'full',
   }],
 },
-  { path: 'home', component: HomeComponent },
+  {
+    path: 'home',
+    component: HomeComponent,
+    children: [
+      {
+        path: 'features',
+        component: FeaturesComponent,
+      },
+      {
+        path: 'updates',
+        component: UpdatesComponent,
+      },
+      {
+        path: 'contact',
+        component: ContactComponent,
+      },
+    ],
+},
   {
     path: 'users',
     component: NbAuthComponent,

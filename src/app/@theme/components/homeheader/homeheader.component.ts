@@ -50,6 +50,18 @@ export class HomeHeaderComponent implements OnInit {
     this.router.navigate(['users/register']);
   }
 
+  featuresClick() {
+    this.router.navigate(['home/features']);
+  }
+
+  updatesClick() {
+    this.router.navigate(['home/updates']);
+  }
+
+  contactClick() {
+    this.router.navigate(['home/contact']);
+  }
+
   isLoggedIn() {
     return this.nbAuthService.loggedIn();
   }

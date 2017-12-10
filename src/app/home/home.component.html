@@ -26,12 +26,12 @@
 
     <div id="pages">
       <div class="top_shadow"></div>
+      
+      <router-outlet></router-outlet>
 
-      <div style="width: 1000px; height: 750px" class="gallery">
+      <div style="width: 1000px; height: 750px" class="gallery" *ngIf="router.url === '/home'">
         <carousel [sources]="imageSources" [config]="config"></carousel>
       </div>
-
-
 
       <div class="bottom_shadow"></div>
 
