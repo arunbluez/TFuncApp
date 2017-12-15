@@ -18,12 +18,12 @@ const UserSchema = mongoose.Schema({
   rememberMe: {
     type: Boolean,
   },
-  terms: {
-    type: Boolean,
-  },
-  confirmPassword: {
+  role: {
     type: String,
     required: true
+  },
+  terms: {
+    type: Boolean,
   },
   fullName: {
     type: String,
