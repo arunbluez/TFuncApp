@@ -18,6 +18,9 @@ const routes: Routes = [
   children: [{
     path: 'dashboard',
     component: DashboardComponent,
+  },  {
+    path: 'admin',
+    loadChildren: './pages/admin/admin.module#AdminModule',
   }, {
     path: '',
     redirectTo: 'dashboard',

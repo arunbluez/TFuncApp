@@ -30,40 +30,38 @@ export class UserManagementComponent {
       confirmDelete: true,
     },
     columns: {
-      id: {
-        title: 'ID',
-        type: 'number',
-      },
-      firstName: {
-        title: 'First Name',
-        type: 'string',
-      },
-      lastName: {
-        title: 'Last Name',
-        type: 'string',
-      },
-      username: {
-        title: 'Username',
+      fullName: {
+        title: 'Name',
         type: 'string',
       },
       email: {
-        title: 'E-mail',
+        title: 'email',
         type: 'string',
       },
-      age: {
-        title: 'Age',
-        type: 'number',
+      authCode: {
+        title: 'Unique Code',
+        type: 'string',
+      },
+      role: {
+        title: 'Role',
+        type: 'string',
       },
     },
   };
-
+  users: any;
   source: LocalDataSource = new LocalDataSource();
 
   constructor(private service: UserManagementService) {
-    const data = this.service.getData();
-    this.source.load(data);
-  }
+    this.service.getUsers().subscribe(data => {
+      this.users = data;
+      this.source.load(this.users);
+    },
+    err => {
+      return false;
+    });
 
+
+  }
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
       event.confirm.resolve();

@@ -112,7 +112,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
       {
         title: 'User management',
-        link: '/pages/admin/users/management',
+        link: '/pages/admin/user-management',
       },
       {
         title: 'Servic management',

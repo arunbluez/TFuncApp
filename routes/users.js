@@ -62,6 +62,22 @@ console.log(req.body.email);
   });
 });
 
+
+router.get('/getUsers', (req, res, next) => {
+
+
+  User.getUsers((err, users) => {
+    if(err) throw err;
+    if(!users){
+      return res.json({success: false, msg: 'User not found'});
+    }else{
+      console.log(users);
+      return res.json(users);
+    }
+  });
+});
+
+
 router.get('/logout', (req, res, next) => {
   res.json({
     success: true,
