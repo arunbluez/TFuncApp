@@ -15,7 +15,7 @@ export class UserManagementService {
 
 
   constructor (private http: Http) {
-    this.isDev = false;
+    this.isDev = true;
   }
 
   getData() {
