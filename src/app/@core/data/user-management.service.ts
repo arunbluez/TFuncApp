@@ -11,6 +11,7 @@ export class UserManagementService {
     authCode: '0000000000',
   }];
   isDev: boolean;
+  authToken: any;
 
 
   constructor (private http: Http) {
