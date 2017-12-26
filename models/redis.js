@@ -11,7 +11,7 @@ module.exports.publish = function(channel, message){
 }
 
 function intervalFunc() {
-  redis.publish(chanelName,"Test";
+  redis.publish(chanelName,"Test");
 }
 
 setInterval(intervalFunc, 1500);
