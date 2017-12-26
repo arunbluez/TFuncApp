@@ -1,17 +1,17 @@
 var redisClient = require('redis').createClient;
 var redis = redisClient(6379, '127.0.0.1');
 
-var chanelName;
+var channelName;
 
 
 redis.auth("tfuncredispass");
 module.exports.publish = function(channel, message){
-  chanelName = channel;
+  channelName = channel;
     redis.publish(channel,message);
 }
 
 function intervalFunc() {
-  redis.publish(chanelName,"Test");
+  redis.publish(channelName,"status:1");
 }
 
 setInterval(intervalFunc, 1500);
