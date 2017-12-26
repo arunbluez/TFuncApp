@@ -14,10 +14,11 @@ module.exports.publish = function(channel, message){
 function intervalFunc() {
   redis.client("list", function (err, value){
     if (err) throw(err)
+    clients = value;
     indices = getIndicesOf("name", value);
 })
   for (index in indices){
-    if(value.substring(index + 5, index + 6) != ""){
+    if(clients.substring(index + 5, index + 6) != ""){
       console.log(value.substring(index + 5, index + 23));
     }
   }
