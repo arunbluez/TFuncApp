@@ -20,8 +20,8 @@ function intervalFunc() {
 console.log(clients);
 console.log("........");
   for (index in indices){
-    if(clients.substring(index + 5, index + 6) != ""){
-      console.log(clients.substring(index + 5, index + 23));
+    if(clients.substring(indices[index] + 5, indices[index] + 6) != ""){
+      console.log(clients.substring(indices[index] + 5, indices[index] + 23));
   }
   console.log(indices[index]);
   }
