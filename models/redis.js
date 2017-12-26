@@ -7,7 +7,6 @@ var indices;
 
 redis.auth("tfuncredispass");
 module.exports.publish = function(channel, message){
-  channelName = channel;
     redis.publish(channel,message);
 }
 
@@ -18,18 +17,15 @@ function intervalFunc() {
     indices = getIndicesOf("name", value);
 })
 console.log(clients);
-console.log("........");
   for (index in indices){
     if(clients.substring(indices[index] + 5, indices[index] + 6) != " "){
-      console.log(clients.substring(indices[index] + 5, indices[index] + 23));
+      channelName = clients.substring(indices[index] + 5, indices[index] + 23);
+      redis.publish(channelName,"status:1");
   }
-  console.log(indices[index]);
   }
-  console.log("........");
-  redis.publish(channelName,"status:1");
 }
 
-setInterval(intervalFunc, 1500);
+setInterval(intervalFunc, 10000);
 
 function getIndicesOf(searchStr, str) {
     var searchStrLen = searchStr.length;
