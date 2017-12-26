@@ -17,11 +17,15 @@ function intervalFunc() {
     clients = value;
     indices = getIndicesOf("name", value);
 })
+console.log(clients);
+console.log("........");
   for (index in indices){
-    if(clients.substring(index + 5, index + 6) != ""){
-      console.log(clients.substring(index + 5, index + 23));
-    }
+    //if(clients.substring(index + 5, index + 6) != ""){
+    //  console.log(clients.substring(index + 5, index + 23));
+  //  }
+  console.log(index);
   }
+    console.log("........");
   redis.publish(channelName,"status:1");
 }
 
