@@ -11,9 +11,11 @@ module.exports.publish = function(channel, message){
 }
 
 function intervalFunc() {
-  redis.client("list", clients);
+  redis.client("list", function (err, value){
+    if (err) throw(err)
+    console.log(value)
+})
   redis.publish(channelName,"status:1");
-  console.log(clients);
 }
 
 setInterval(intervalFunc, 1500);
