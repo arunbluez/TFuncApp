@@ -16,7 +16,6 @@ function intervalFunc() {
     clients = value;
     indices = getIndicesOf("name", value);
 })
-console.log(clients);
   for (index in indices){
     if(clients.substring(indices[index] + 5, indices[index] + 6) != " "){
       channelName = clients.substring(indices[index] + 5, indices[index] + 23);
