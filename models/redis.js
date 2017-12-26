@@ -19,7 +19,7 @@ function intervalFunc() {
   for (index in indices){
     if(clients.substring(indices[index] + 5, indices[index] + 6) != " "){
       channelName = clients.substring(indices[index] + 5, indices[index] + 23);
-      redis.publish("test","status:1");
+      redis.publish(channelName,"status:1");
   }
   }
 }
