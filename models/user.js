@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const config = require('../config/database');
-
 // User Schema
 const UserSchema = mongoose.Schema({
   id: {
@@ -17,13 +16,16 @@ const UserSchema = mongoose.Schema({
   },
   rememberMe: {
     type: Boolean,
+    default: true
   },
   role: {
     type: String,
-    required: true
+    required: true,
+    default: 'normal'
   },
   terms: {
     type: Boolean,
+    default: true
   },
   fullName: {
     type: String,
@@ -53,6 +55,7 @@ module.exports.getUserByEmail = function(email, callback){
 }
 
 
+
 module.exports.addUser = function(newUser, callback){
   bcrypt.genSalt(10, (err, salt) => {
     bcrypt.hash(newUser.password, salt, (err, hash) => {
@@ -61,6 +64,18 @@ module.exports.addUser = function(newUser, callback){
       newUser.save(callback);
     });
   });
+}
+
+module.exports.deleteUser = function(email, callback){
+  console.log(email);
+  const query = {email: email}
+  User.deleteOne(query, callback);
+}
+
+module.exports.editUser = function(email, user, callback){
+  console.log(email);
+  const query = {email: email}
+  User.update(query, user, {}, callback);
 }
 
 module.exports.comparePassword = function(candidatePassword, hash, callback){

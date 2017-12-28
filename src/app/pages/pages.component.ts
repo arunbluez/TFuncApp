@@ -6,7 +6,7 @@ import { MENU_ITEMS } from './pages-menu';
   selector: 'ngx-pages',
   template: `
     <ngx-backend-layout>
-      <nb-menu [items]="menu"></nb-menu>
+      <nb-menu [items]="menu" [tag]="dashMenu"></nb-menu>
       <router-outlet></router-outlet>
     </ngx-backend-layout>
   `,
@@ -14,4 +14,5 @@ import { MENU_ITEMS } from './pages-menu';
 export class PagesComponent {
 
   menu = MENU_ITEMS;
+  dashMenu = "dashMenu";
 }

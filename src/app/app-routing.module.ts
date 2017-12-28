@@ -14,7 +14,7 @@ import { PagesComponent } from './pages/pages.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const routes: Routes = [
-  { path: 'pages', component: PagesComponent, canActivate: [AuthGuard],
+  { path: 'pages', component: PagesComponent,
   children: [{
     path: 'dashboard',
     component: DashboardComponent,

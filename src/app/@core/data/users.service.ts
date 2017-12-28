@@ -30,7 +30,6 @@ export class UserService {
   }
 
   getUser(): Observable<any> {
-
     return Observable.of(JSON.parse(localStorage.getItem('user')));
   }
 }

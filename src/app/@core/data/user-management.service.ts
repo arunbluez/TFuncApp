@@ -15,7 +15,7 @@ export class UserManagementService {
 
 
   constructor (private http: Http) {
-    this.isDev = true;
+    this.isDev = false;
   }
 
   getData() {
@@ -25,6 +25,36 @@ export class UserManagementService {
   getUsers() {
   const ep = this.prepEndpoint('users/getUsers');
   return this.http.get(ep)
+    .map(res => res.json());
+}
+
+getUserRole(email){
+  let ep = this.prepEndpoint('users/getUserRole/' + email);
+  console.log(ep);
+  return this.http.get(ep)
+    .map(res => res.json());
+}
+
+
+registerUser(user){
+  let headers = new Headers();
+  headers.append('Content-Type','application/json');
+  let ep = this.prepEndpoint('users/register');
+  return this.http.post(ep, user,{headers: headers})
+    .map(res => res.json());
+}
+
+editUser(user){
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let ep = this.prepEndpoint('users/edit/');
+    return this.http.put(ep, JSON.stringify(user), {headers: headers})
+        .map(res => res.json());
+}
+
+deleteUser(email){
+  let ep = this.prepEndpoint('users/delete/' + email);
+  return this.http.delete(ep)
     .map(res => res.json());
 }
 

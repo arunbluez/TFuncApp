@@ -4,6 +4,7 @@ import { NbMenuService, NbSidebarService } from '@nebular/theme';
 import { UserService } from '../../../@core/data/users.service';
 import { AnalyticsService } from '../../../@core/utils/analytics.service';
 import { NbAuthService } from '@nebular/auth/services/auth.service';
+import { NbMenuItem } from '@nebular/theme';
 
 @Component({
   selector: 'ngx-home-header',
@@ -18,6 +19,33 @@ export class HomeHeaderComponent implements OnInit {
   user: any;
 
   userMenu = [{ title: 'Profile' , url: '#/users/profile'}, { title: 'Log out', url: '#/users/logout' }];
+
+  MENU_ITEMS: NbMenuItem[] = [
+    {
+      title: 'Admin',
+      icon: 'ion-paper-airplane',
+      children: [
+        {
+          title: 'Server Settings',
+          link: '/pages/admin/server/settings',
+        },
+        {
+          title: 'Server management',
+          link: '/pages/admin/server/management',
+        },
+        {
+          title: 'User management',
+          link: '/pages/admin/user-management',
+        },
+        {
+          title: 'Servic management',
+          link: '/pages/admin/service/management',
+        },
+      ],
+    },
+  ];
+
+
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,

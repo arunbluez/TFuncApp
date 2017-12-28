@@ -61,6 +61,7 @@
     "classlist.js": "1.1.20150312",
     "core-js": "^2.4.1",
     "cors": "*",
+    "crypto-js": "^3.1.9-1",
     "d3": "4.8.0",
     "express": "*",
     "font-awesome": "4.7.0",

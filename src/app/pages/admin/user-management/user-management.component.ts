@@ -19,11 +19,13 @@ export class UserManagementComponent {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+      confirmCreate: true,
     },
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+      confirmSave: true,
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
@@ -59,12 +61,60 @@ export class UserManagementComponent {
     err => {
       return false;
     });
-
-
   }
   onDeleteConfirm(event): void {
+    const deleteEmail = event.data['email'];
     if (window.confirm('Are you sure you want to delete?')) {
+      this.service.deleteUser(deleteEmail).subscribe(data => {
+        console.log(data);
+      },
+      err => {
+        return false;
+      });
       event.confirm.resolve();
+    } else {
+      event.confirm.reject();
+    }
+  }
+
+  onSaveConfirm(event) {
+    const user = {
+      fullName: event.newData['fullName'],
+      email: event.newData['email'],
+      authCode: event.newData['authCode'],
+      role: event.newData['role']
+    }
+
+    if (window.confirm('Are you sure you want to save?')) {
+      this.service.editUser(user).subscribe(data => {
+        console.log(data);
+      },
+      err => {
+        return false;
+      });
+      event.confirm.resolve(event.newData);
+    } else {
+      event.confirm.reject();
+    }
+  }
+
+  onCreateConfirm(event): void {
+    const user = {
+      fullName: event.newData['fullName'],
+      email: event.newData['email'],
+      authCode: event.newData['authCode'],
+      password: 'defaultPass',
+      role: event.newData['role']
+    }
+
+    if (window.confirm('Are you sure you want to create?')) {
+      this.service.registerUser(user).subscribe(data => {
+        console.log(data);
+      },
+      err => {
+        return false;
+      });
+      event.confirm.resolve(event.newData);
     } else {
       event.confirm.reject();
     }

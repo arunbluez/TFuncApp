@@ -12,8 +12,8 @@ router.post('/register', (req, res, next) => {
     email: req.body.email,
     password: req.body.password,
     rememberMe: req.body.rememberMe,
+    role: req.body.role,
     terms: req.body.terms,
-    confirmPassword: req.body.confirmPassword,
     fullName: req.body.fullName,
     authCode: req.body.authCode,
   });
@@ -26,6 +26,44 @@ router.post('/register', (req, res, next) => {
     }
   });
 });
+
+//delete User
+router.delete('/delete/:email', function(req, res, next){
+    User.deleteUser(req.params.email, (err, user) => {
+      if(err){
+        res.json({success: false, msg:'Failed to delete user'});
+      } else {
+        res.json({success: true, msg:'User Deleted'});
+      }
+    });
+});
+
+//Edit user
+router.put('/edit', function(req, res, next){
+    var editedUser = req.body;
+    var user = {};
+
+        user.fullName = editedUser.fullName;
+        user.email = editedUser.email;
+        user.authCode = editedUser.authCode;
+        user.role = editedUser.role;
+
+    if(!user){
+        res.status(400);
+        res.json({
+            "error":"Bad Data"
+        });
+    } else {
+      User.editUser(user.email,user, (err, user) => {
+        if(err){
+          res.json({success: false, msg:'Failed to Update user'});
+        } else {
+          res.json({success: true, msg:'User Updated'});
+        }
+      });
+    }
+});
+
 
 // Authenticate
 router.post('/authenticate', (req, res, next) => {
@@ -64,8 +102,6 @@ console.log(req.body.email);
 
 
 router.get('/getUsers', (req, res, next) => {
-
-
   User.getUsers((err, users) => {
     if(err) throw err;
     if(!users){
@@ -73,6 +109,18 @@ router.get('/getUsers', (req, res, next) => {
     }else{
       console.log(users);
       return res.json(users);
+    }
+  });
+});
+
+router.get('/getUserRole/:email', (req, res, next) => {
+  console.log(req.params.email);
+  User.getUserByEmail(req.params.email, (err, user) => {
+    if(err) throw err;
+    if(!user){
+      return res.json({success: false, msg: 'User not found'});
+    }else{
+      return res.json(user.role);
     }
   });
 });
