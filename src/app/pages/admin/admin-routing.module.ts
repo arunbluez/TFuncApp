@@ -27,5 +27,5 @@ export class AdminRoutingModule { }
 export const routedComponents = [
   AdminComponent,
   UserManagementComponent,
-  authCodeComponent
+  authCodeComponent,
 ];

@@ -4,7 +4,7 @@ import { LocalDataSource } from 'ng2-smart-table';
 import { UserManagementService } from '../../../@core/data/user-management.service';
 
 @Component({
-  selector: 'ngx-authCode',
+  selector: 'ngx-authcode',
   templateUrl: './authCode.component.html',
   styles: [`
     nb-card {
@@ -12,7 +12,7 @@ import { UserManagementService } from '../../../@core/data/user-management.servi
     }
   `],
 })
-export class authCodeComponent {
+export class AuthCodeComponent {
 
   authCode: any;
 
@@ -20,7 +20,7 @@ export class authCodeComponent {
   }
 
 
-generateAuthCode(){
+generateAuthCode() {
   this.service.generateAuthCode().subscribe(data => {
     this.authCode = data;
   },

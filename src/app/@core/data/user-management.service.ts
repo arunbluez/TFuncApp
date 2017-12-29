@@ -37,7 +37,7 @@ getUserRole(email) {
 
 registerUser(user) {
   const headers = new Headers();
-  headers.append('Content-Type','application/json');
+  headers.append('Content-Type', 'application/json');
   const ep = this.prepEndpoint('users/register');
   return this.http.post(ep, user, {headers: headers})
     .map(res => res.json());
@@ -64,7 +64,7 @@ loadToken() {
 
 
 generateAuthCode() {
-  let ep = this.prepEndpoint('users/generateAuthCode');
+  const ep = this.prepEndpoint('users/generateAuthCode');
   return this.http.get(ep)
       .map(res => res.json());
 }

@@ -85,10 +85,10 @@ export class HeaderComponent implements OnInit {
       this.userManagementService.getUserRole(this.user.email)
         .subscribe(data => {
           this.role = data;
-          if(this.role == 'admin'){
+          if (this.role === 'admin') {
             this.menuService.addItems(this.SERVICE_ITEMS, 'dashMenu');
             this.menuService.addItems(this.ADMIN_ITEMS, 'dashMenu');
-          } else if (this.role == 'service'){
+          } else if (this.role === 'service') {
             this.menuService.addItems(this.SERVICE_ITEMS, 'dashMenu');
           }
         },

@@ -81,8 +81,8 @@ export class UserManagementComponent {
       fullName: event.newData['fullName'],
       email: event.newData['email'],
       authCode: event.newData['authCode'],
-      role: event.newData['role']
-    }
+      role: event.newData['role'],
+    };
 
     if (window.confirm('Are you sure you want to save?')) {
       this.service.editUser(user).subscribe(data => {
@@ -102,8 +102,8 @@ export class UserManagementComponent {
       email: event.newData['email'],
       authCode: event.newData['authCode'],
       password: 'defaultPass',
-      role: event.newData['role']
-    }
+      role: event.newData['role'],
+    };
 
     if (window.confirm('Are you sure you want to create?')) {
       this.service.registerUser(user).subscribe(data => {
