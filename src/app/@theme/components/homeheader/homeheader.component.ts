@@ -94,7 +94,7 @@ export class HomeHeaderComponent implements OnInit {
     return this.nbAuthService.loggedIn();
   }
 
-  onLogoutClick(){
+  onLogoutClick() {
     this.user = null;
     localStorage.clear();
     this.menuService.navigateHome();
