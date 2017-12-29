@@ -63,6 +63,13 @@ loadToken() {
   this.authToken = token;
 }
 
+
+generateAuthCode(){
+  let ep = this.prepEndpoint('users/generateAuthCode');
+  return this.http.get(ep)
+      .map(res => res.json());
+}
+
 prepEndpoint(ep) {
   if ( this.isDev ) {
     return ep;

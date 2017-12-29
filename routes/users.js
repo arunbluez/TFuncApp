@@ -4,6 +4,7 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const config = require('../config/database');
 const User = require('../models/user');
+const uniqid = require('uniqid');
 
 // Register
 router.post('/register', (req, res, next) => {
@@ -125,6 +126,22 @@ router.get('/getUserRole/:email', (req, res, next) => {
   });
 });
 
+
+router.get('/generateAuthCode', (req, res, next) => {
+  var unique = false;
+
+
+  var authCode = uniqid.process();
+  User.checkAuthCode(authCode, (err, users) => {
+    if(err) throw err;
+    if(!users){
+      unique = true;
+      return res.json(authCode);
+    }else{
+      return res.json('duplicate AuthCode found');
+    }
+  });
+});
 
 router.get('/logout', (req, res, next) => {
   res.json({

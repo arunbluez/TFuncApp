@@ -30,11 +30,11 @@ export class HeaderComponent implements OnInit {
       children: [
         {
           title: 'Server Settings',
-          link: '/pages/admin/server/settings',
+          link: '/pages/admin/server-settings',
         },
         {
           title: 'Server management',
-          link: '/pages/admin/server/management',
+          link: '/pages/admin/server-management',
         },
         {
           title: 'User management',
@@ -42,7 +42,11 @@ export class HeaderComponent implements OnInit {
         },
         {
           title: 'Servic management',
-          link: '/pages/admin/service/management',
+          link: '/pages/admin/service-management',
+        },
+        {
+          title: 'Generate Auth Code',
+          link: '/pages/admin/authCode',
         },
       ],
     },
@@ -53,10 +57,6 @@ export class HeaderComponent implements OnInit {
       title: 'Serive Technicians',
       icon: 'ion-settings',
       children: [
-        {
-          title: 'Generate Auth Code',
-          link: '/pages/service/authCode',
-        },
         {
           title: 'Import Modules',
           link: '/pages/service/import',
@@ -120,6 +120,10 @@ console.log(this.role);
 
   isLoggedIn() {
     return this.nbAuthService.loggedIn();
+  }
+
+  onMenuClick(){
+    console.log("test menu click");
   }
 
   goToHome() {

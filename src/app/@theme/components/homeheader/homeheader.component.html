@@ -6,7 +6,7 @@
 <nb-actions size="medium" [class.right]="position === 'normal'"
 [class.left]="position === 'inverse'" *ngIf="!isLoggedIn()">
   <nb-action *ngIf="isLoggedIn()">
-    <nb-user [menu]="userMenu" [name]="user?.fullName" [picture]="user?.picture"></nb-user>
+    <nb-user [menu]="userMenu" [name]="user?.fullName" [picture]="user?.picture" (menuClick)="onMenuClick()"></nb-user>
   </nb-action>
   <nb-action class="HomeNav" (click)="loginClick()">
     <div><i class="ion-log-in"></i></div><div><span>Login</span></div>

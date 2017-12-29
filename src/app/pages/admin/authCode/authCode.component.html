@@ -1,0 +1,18 @@
+<nb-card>
+  <nb-card-header>
+    Authentication code
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="input-group">
+          <span class="input-group-btn">
+            <button class="btn btn-secondary" type="button" (click)="generateAuthCode()">Generate</button>
+          </span>
+          <input type="text" class="form-control" placeholder="{{authCode}}" value="{{authCode}}">
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

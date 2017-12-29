@@ -54,7 +54,12 @@ module.exports.getUserByEmail = function(email, callback){
   User.findOne(query, callback);
 }
 
-
+module.exports.checkAuthCode = function(authCode, callback){
+        console.log(authCode);
+  const query = {authCode: authCode}
+  User.findOne(query, callback);
+  console.log(callback);
+}
 
 module.exports.addUser = function(newUser, callback){
   bcrypt.genSalt(10, (err, salt) => {
