@@ -66,7 +66,6 @@ export class UserManagementComponent {
     const deleteEmail = event.data['email'];
     if (window.confirm('Are you sure you want to delete?')) {
       this.service.deleteUser(deleteEmail).subscribe(data => {
-        console.log(data);
       },
       err => {
         return false;
@@ -87,7 +86,6 @@ export class UserManagementComponent {
 
     if (window.confirm('Are you sure you want to save?')) {
       this.service.editUser(user).subscribe(data => {
-        console.log(data);
       },
       err => {
         return false;
@@ -109,7 +107,6 @@ export class UserManagementComponent {
 
     if (window.confirm('Are you sure you want to create?')) {
       this.service.registerUser(user).subscribe(data => {
-        console.log(data);
       },
       err => {
         return false;

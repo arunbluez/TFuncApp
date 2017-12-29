@@ -28,32 +28,31 @@ export class UserManagementService {
     .map(res => res.json());
 }
 
-getUserRole(email){
-  let ep = this.prepEndpoint('users/getUserRole/' + email);
-  console.log(ep);
+getUserRole(email) {
+  const ep = this.prepEndpoint('users/getUserRole/' + email);
   return this.http.get(ep)
     .map(res => res.json());
 }
 
 
-registerUser(user){
-  let headers = new Headers();
+registerUser(user) {
+  const headers = new Headers();
   headers.append('Content-Type','application/json');
-  let ep = this.prepEndpoint('users/register');
-  return this.http.post(ep, user,{headers: headers})
+  const ep = this.prepEndpoint('users/register');
+  return this.http.post(ep, user, {headers: headers})
     .map(res => res.json());
 }
 
-editUser(user){
-    var headers = new Headers();
+editUser(user) {
+    const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    let ep = this.prepEndpoint('users/edit/');
+    const ep = this.prepEndpoint('users/edit/');
     return this.http.put(ep, JSON.stringify(user), {headers: headers})
         .map(res => res.json());
 }
 
-deleteUser(email){
-  let ep = this.prepEndpoint('users/delete/' + email);
+deleteUser(email) {
+  const ep = this.prepEndpoint('users/delete/' + email);
   return this.http.delete(ep)
     .map(res => res.json());
 }
@@ -64,7 +63,7 @@ loadToken() {
 }
 
 
-generateAuthCode(){
+generateAuthCode() {
   let ep = this.prepEndpoint('users/generateAuthCode');
   return this.http.get(ep)
       .map(res => res.json());

@@ -97,16 +97,9 @@ export class HomeHeaderComponent implements OnInit {
   onLogoutClick(){
     this.user = null;
     localStorage.clear();
-  console.log("logout");
-this.menuService.navigateHome();
-console.log("logout");
-  return false;
+    this.menuService.navigateHome();
+    return false;
 }
-
-onMenuClick(){
-  console.log("test menu click");
-}
-
   goToHome() {
     this.menuService.navigateHome();
   }
