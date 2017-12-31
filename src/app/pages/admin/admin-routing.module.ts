@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminComponent } from './admin.component';
 import { UserManagementComponent } from './user-management/user-management.component';
-import { authCodeComponent } from './authCode/authCode.component';
+import { AuthCodeComponent } from './authCode/authCode.component';
 
 const routes: Routes = [{
   path: '',
