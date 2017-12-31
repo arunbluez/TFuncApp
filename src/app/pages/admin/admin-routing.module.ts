@@ -14,7 +14,7 @@ const routes: Routes = [{
   },
   {
     path: 'authCode',
-    component: authCodeComponent,
+    component: AuthCodeComponent,
   }],
 }];
 
@@ -27,5 +27,5 @@ export class AdminRoutingModule { }
 export const routedComponents = [
   AdminComponent,
   UserManagementComponent,
-  authCodeComponent,
+  AuthCodeComponent,
 ];
